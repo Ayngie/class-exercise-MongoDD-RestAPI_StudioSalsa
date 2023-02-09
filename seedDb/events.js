@@ -1,15 +1,15 @@
 exports.events = [
   {
-    name: 'JULFEST PÅ STUDIO SALSA',
-    startDate: '2023-12-15',
-    endDate: '2023-12-16',
-    startTime: '20:00',
-    endTime: '01:00',
+    name: "JULFEST PÅ STUDIO SALSA",
+    startDate: "2023-12-15",
+    endDate: "2023-12-16",
+    startTime: "20:00",
+    endTime: "01:00",
     location: {
-      venue: 'Studio Salsa',
-      street: 'Västmannagatan 46',
-      zipCode: '113 25',
-      city: 'Stockholm',
+      venue: "Studio Salsa",
+      street: "Västmannagatan 46",
+      zipCode: "113 25",
+      city: "Stockholm",
     },
     description: `
       Väntan är över! Vi önskar er varmt välkomna ner till Studio Salsa för julfest den 16 december.
@@ -26,16 +26,16 @@ exports.events = [
     `,
   },
   {
-    name: 'Sommarpremiär 5 Juni! Salsa & Bachata på Josefina',
-    startDate: '2023-06-04',
-    endDate: '2023-06-05',
-    startTime: '19:00',
-    endTime: '01:00',
+    name: "Sommarpremiär 5 Juni! Salsa & Bachata på Josefina",
+    startDate: "2023-06-04",
+    endDate: "2023-06-05",
+    startTime: "19:00",
+    endTime: "01:00",
     location: {
-      venue: 'Josefina',
-      street: 'Galärvarvsvägen 10',
-      zipCode: '115 21',
-      city: 'Stockholm',
+      venue: "Josefina",
+      street: "Galärvarvsvägen 10",
+      zipCode: "115 21",
+      city: "Stockholm",
     },
     description: `
       Studio Salsa välkomnar er till sommarens Premiär på Josefina.
@@ -53,16 +53,16 @@ exports.events = [
     `,
   },
   {
-    name: 'Salsa & Bachata. Gratis prova-på. Terminsstart 30 jan',
-    startDate: '2023-01-22',
-    startDate: '2023-01-29',
-    startTime: '14:00',
-    endTime: '16:00',
+    name: "Salsa & Bachata. Gratis prova-på. Terminsstart 30 jan",
+    startDate: "2023-01-22",
+    endDate: "2023-01-29",
+    startTime: "14:00",
+    endTime: "16:00",
     location: {
-      venue: 'Studio Salsa',
-      street: 'Västmannagatan 46',
-      zipCode: '113 25',
-      city: 'Stockholm',
+      venue: "Studio Salsa",
+      street: "Västmannagatan 46",
+      zipCode: "113 25",
+      city: "Stockholm",
     },
     description: `
       GRATIS PROVA-PÅ INFÖR TERMINSSTART 30 JANUARI 2023.
@@ -89,16 +89,16 @@ exports.events = [
     `,
   },
   {
-    name: 'Workshops & Social - Studio Salsa',
-    startDate: '2023-04-01',
-    startDate: '2023-04-01',
-    startTime: '16:50',
-    endTime: '21:00',
+    name: "Workshops & Social - Studio Salsa",
+    startDate: "2023-04-01",
+    endDate: "2023-04-01",
+    startTime: "16:50",
+    endTime: "21:00",
     location: {
-      venue: 'Studio Salsa',
-      street: 'Västmannagatan 46',
-      zipCode: '113 25',
-      city: 'Stockholm',
+      venue: "Studio Salsa",
+      street: "Västmannagatan 46",
+      zipCode: "113 25",
+      city: "Stockholm",
     },
     description: `
       Studio Salsa bjuder in till en härlig danskväll.
@@ -129,4 +129,4 @@ exports.events = [
       Vi önskar er varmt välkomna
     `,
   },
-]
+];
