@@ -1,4 +1,4 @@
-const Restaurant = require("../models/Restaurant");
+const Restaurant = require("../models/Dance");
 const { NotFoundError, BadRequestError } = require("../utils/errors");
 
 //CRUD Restaurants:
