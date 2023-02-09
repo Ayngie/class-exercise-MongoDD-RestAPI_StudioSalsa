@@ -2,6 +2,10 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const mongoose = require("mongoose");
+const {
+  getAllBookings,
+  getBookingById,
+} = require("./controllers/bookingController");
 //const { errorMiddleware } = require("./middleware/errorMiddleware");
 //const { notFoundMiddleware } = require("./middleware/notFoundMiddleware");
 
@@ -18,6 +22,9 @@ app.use((req, res, next) => {
 app.use("/helloWorld", (request, response) => {
   return response.send("Hello World!");
 });
+
+app.get("/api/v1/bookings", getAllBookings);
+app.get("/api/v1/bookings/:bookingId", getBookingById);
 
 /*
 app.use(notFoundMiddleware);

@@ -1,24 +1,39 @@
-const Booking = require("../models/Booking");
+//controllers är kopplat till vårt REST-API-design (våra endpoints) - logik för routes för våra requests
+//models är databasdesign - ska följa vad som är bäst för databasen
+//dessa två kan se helt olika ut
+
+//BEHÖVER GÖRAS OM! Finns inte längre en booking model, den är nu embeddad i course.
 const { NotFoundError, BadRequestError } = require("../utils/errors");
+const Course = require("../models/Course");
 
 //CRUD Bookings:
-
 // GET /api/v1/bookings - Get all bookings
 exports.getAllBookings = async (req, res, next) => {
   const limit = Number(req.query?.limit || 10);
 
   const offset = Number(req.query?.offset || 0);
 
-  const bookings = await Booking.find().limit(limit).skip(offset);
-  const totalBookingsInDatabase = await Booking.countDocuments();
+  const courses = await Course.find({}, { bookings: true }) //tomt objekt först = hämta allt, andra objektet = vilken data i dokumentet vill vi ha tillbaka (vilka fält i vår model) filter av vad vi vill ha tillbaka //levererar en array m alla objekt som har en booking i sig.
+    .limit(limit)
+    .skip(offset);
+  // const totalBookingsInDatabase = await Booking.countDocuments();
+
+  // console.log(bookings);
+
+  const bookingDataOnly = [];
+  courses.forEach((course) => {
+    course.bookings.forEach((booking) => {
+      bookingDataOnly.push(booking);
+    });
+  });
 
   return res.json({
-    data: bookings,
+    data: bookingDataOnly,
     meta: {
-      total: totalBookingsInDatabase,
+      // total: totalBookingsInDatabase,
       limit: limit,
       offset: offset,
-      count: bookings.length,
+      count: bookingDataOnly.length,
     },
   });
 };
@@ -27,7 +42,10 @@ exports.getAllBookings = async (req, res, next) => {
 exports.getBookingById = async (req, res, next) => {
   const bookingId = req.params.bookingId;
 
-  const booking = await Booking.findById(bookingId);
+  //hämtar kursen som inneh den boknings vi är ute efter
+  const course = await Course.findOne({ "bookings._id": bookingId });
+  //filtrerar fram datan för vår specifika bokning
+  const booking = course.bookings.find((booking) => booking._id == bookingId); //levererar true/false - forts tills hittar en true match av id:n
 
   if (!booking) throw new NotFoundError("This booking does not exist");
   return res.json(booking);

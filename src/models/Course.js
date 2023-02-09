@@ -1,5 +1,39 @@
 const mongoose = require("mongoose");
 
+//vi embeddar bookingschema i courseschema
+//detta är ett subdocument
+const BookingSchema = new mongoose.Schema(
+  {
+    fName: {
+      type: String,
+      required: true,
+    },
+    lName: {
+      type: String,
+      required: true,
+    },
+    partner: {
+      type: String,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    mobileNumber: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+//parent document
 const CourseSchema = new mongoose.Schema(
   {
     name: {
@@ -67,6 +101,9 @@ const CourseSchema = new mongoose.Schema(
     maxParticipants: {
       type: Number,
       requred: true,
+    },
+    bookings: {
+      type: [BookingSchema], //en array av subdocuments
     },
   },
   {
